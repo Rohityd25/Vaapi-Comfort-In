@@ -17,31 +17,15 @@
       <span class="logo-icon">🏨</span>
       <span>Hotel <span class="logo-accent">Vapi</span></span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="rooms.html" class="nav-link active">Rooms</a></li>
-      <li><a href="index.html#amenities" class="nav-link">Amenities</a></li>
-      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    <ul class="nav-links" id="navLinks" style="align-items: center;">
+      <li><a href="index.html" class="btn btn-gold">Home</a></li>
+      <li><a href="rooms.html" class="btn btn-gold">Rooms</a></li>
+      <li><a href="index.html#amenities" class="btn btn-gold">Amenities</a></li>
+      <li><a href="index.html#contact" class="btn btn-gold">Contact</a></li>
     </ul>
     <div class="nav-actions" id="navActions">
-      <div id="authButtons">
-        <a href="login.html" class="btn btn-outline">Login</a>
-        <a href="register.html" class="btn btn-primary">Register</a>
-      </div>
-      <div id="userMenu" style="display:none;">
-        <div class="user-avatar-wrap" onclick="toggleUserDropdown()">
-          <img src="" alt="Avatar" class="user-avatar" id="navAvatar" />
-          <span id="navUserName"></span>
-          <span class="dropdown-arrow">▾</span>
-        </div>
-        <div class="user-dropdown" id="userDropdown">
-          <a href="dashboard.html"><span>👤</span> My Dashboard</a>
-          <a href="bookings.html"><span>📋</span> My Bookings</a>
-          <a href="admin.html" id="adminLink" style="display:none;"><span>⚙️</span> Admin Panel</a>
-          <hr />
-          <a href="#" onclick="logout()"><span>🚪</span> Logout</a>
-        </div>
-      </div>
+      <a href="tel:+919876543210" class="btn btn-outline">📞 Call Us</a>
+      <a href="index.html#contact" class="btn btn-gold">Book Now</a>
     </div>
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
@@ -238,7 +222,6 @@
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script src="js/api.js"></script>
-<script src="js/auth.js"></script>
 <script src="js/room-detail.js"></script>
 </body>
 </html>
