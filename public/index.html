@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaapi Comfort Inn — Luxury Stays in Vapi, Gujarat</title>
+  <meta name="description" content="Experience luxury redefined at Vaapi Comfort Inn. Book premium rooms with stunning views, world-class amenities, and unforgettable hospitality in the heart of Vapi, Gujarat." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Hero image slideshow - pure inline approach */
+    #hero { background: #000 !important; }
+    .hero-content { position: relative !important; z-index: 5 !important; }
+    .hero-scroll   { position: absolute !important; z-index: 10 !important; }
+  </style>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23c9a96e'/><rect x='4' y='14' width='24' height='14' rx='2' fill='%230d0d1a'/><rect x='7' y='10' width='18' height='6' rx='1' fill='%231a1028'/><rect x='12' y='3' width='8' height='9' rx='1' fill='%230d0d1a'/><rect x='13' y='18' width='3' height='5' rx='1' fill='%23c9a96e'/><rect x='16' y='18' width='3' height='5' rx='1' fill='%23c9a96e'/><rect x='8' y='17' width='4' height='3' rx='0.5' fill='%23c9a96e'/><rect x='20' y='17' width='4' height='3' rx='0.5' fill='%23c9a96e'/></svg>" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="vaapi-logo.png" alt="Vaapi Comfort Inn" class="nav-logo-img" />
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="rooms.html" class="nav-link">Rooms</a></li>
+      <li><a href="#amenities" class="nav-link">Amenities</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions" id="navActions">
+      <a href="tel:+919876543210" class="btn btn-outline" id="callBtn">📞 Call Us</a>
+      <a href="#contact" class="btn btn-gold" id="bookNowBtn">Book Now</a>
+    </div>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════ HERO ════════════════════════════════════ -->
+<section class="hero" id="hero" style="position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center;">
+
+  <!-- SLIDESHOW IMAGES - directly as children, z-index managed inline -->
+  <div id="heroBg" style="position:absolute;inset:0;z-index:0;">
+    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-day.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:1;"></div>
+    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-aerial.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:0;"></div>
+    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-night.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:0;"></div>
+    <!-- Light gradient overlay -->
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.10) 40%,rgba(0,0,0,0.55) 100%);z-index:1;"></div>
+  </div>
+
+  <!-- Slideshow dots -->
+  <div class="hero-slide-dots" id="heroSlideDots" style="position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:0.5rem;"></div>
+
+  <div class="hero-content">
+    <div class="hero-divider-line"></div>
+    <h1 class="hero-title hero-name">
+      Vaapi Comfort Inn
+    </h1>
+    <div class="hero-tagline-wrap">
+      <div class="hero-line"></div>
+      <p class="hero-tagline">Where Mountains Meet Luxury</p>
+      <div class="hero-line"></div>
+    </div>
+    <p class="hero-subtitle">
+      Nestled in the heart of nature — breathtaking views,
+      world-class comfort, and memories that last a lifetime.
+    </p>
+
+    <!-- Booking Quick Search -->
+    <div class="booking-bar" id="bookingBar">
+      <div class="booking-field">
+        <label><span>📅</span> Check In</label>
+        <input type="date" id="heroCheckIn" class="booking-input" />
+      </div>
+      <div class="booking-divider"></div>
+      <div class="booking-field">
+        <label><span>📅</span> Check Out</label>
+        <input type="date" id="heroCheckOut" class="booking-input" />
+      </div>
+      <div class="booking-divider"></div>
+      <div class="booking-field">
+        <label><span>👥</span> Guests</label>
+        <select id="heroGuests" class="booking-input">
+          <option value="1">1 Guest</option>
+          <option value="2" selected>2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+          <option value="5">5+ Guests</option>
+        </select>
+      </div>
+      <button class="btn btn-gold btn-search" onclick="searchRooms()">
+        Search Rooms 🔍
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-scroll" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════ STATS ════════════════════════════════════ -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Happy Guests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-label">Premium Rooms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="20">0</div>
+        <div class="stat-label">Awards Won</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ ROOM CATEGORIES ════════════════════════════ -->
+<section class="section" id="featured-rooms">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our Rooms</span>
+      <h2 class="section-title">Choose Your Stay</h2>
+      <p class="section-subtitle">From cosy standard rooms to lavish suites — every category designed for comfort</p>
+    </div>
+
+    <div class="room-categories-grid">
+
+      <a href="rooms.html?type=Standard" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1631049552240-59c37f38802b?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹2,200/night</span>
+          <h3>Standard Rooms</h3>
+          <p>Comfortable & affordable with all essentials</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+      <a href="rooms.html?type=Deluxe" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹4,500/night</span>
+          <h3>Deluxe Rooms</h3>
+          <p>Spacious rooms with pool or mountain views</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+      <a href="rooms.html?type=Suite" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹8,500/night</span>
+          <h3>Executive Suites</h3>
+          <p>Premium suites with private lounge &amp; butler</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+      <a href="rooms.html?type=Presidential" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹18,000/night</span>
+          <h3>Presidential Suite</h3>
+          <p>The pinnacle of luxury — panoramic views &amp; jacuzzi</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+      <a href="rooms.html?type=Family" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹5,500/night</span>
+          <h3>Family Rooms</h3>
+          <p>Spacious layout perfect for families &amp; groups</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+      <a href="rooms.html?type=Suite" class="room-cat-card">
+        <div class="room-cat-img" style="background-image:url('https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=700&q=80')"></div>
+        <div class="room-cat-overlay">
+          <span class="room-cat-badge">From ₹12,000/night</span>
+          <h3>Honeymoon Suite</h3>
+          <p>Romantic escape with jacuzzi &amp; rose petal setup</p>
+          <span class="room-cat-cta">Explore →</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="rooms.html" class="btn btn-outline btn-lg">View All Rooms →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ AMENITIES ════════════════════════════════ -->
+<section class="section section-dark" id="amenities">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Why Choose Us</span>
+      <h2 class="section-title">World-Class Amenities</h2>
+      <p class="section-subtitle">Everything you need for the perfect stay</p>
+    </div>
+
+    <div class="amenities-grid">
+      <div class="amenity-card">
+        <div class="amenity-icon">🏊</div>
+        <h3>Infinity Pool</h3>
+        <p>Swim in our temperature-controlled infinity pool with panoramic views</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍽️</div>
+        <h3>Fine Dining</h3>
+        <p>Award-winning restaurant serving authentic Indian and international cuisine</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">💆</div>
+        <h3>Luxury Spa</h3>
+        <p>Rejuvenate with our signature spa treatments and wellness programs</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🏋️</div>
+        <h3>Fitness Center</h3>
+        <p>State-of-the-art gym with personal trainers available 24/7</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🚗</div>
+        <h3>Valet Parking</h3>
+        <p>Complimentary valet parking for all hotel guests</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">📶</div>
+        <h3>Free WiFi</h3>
+        <p>High-speed complimentary WiFi throughout the property</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🛎️</div>
+        <h3>24/7 Concierge</h3>
+        <p>Our dedicated concierge team available around the clock for any request</p>
+      </div>
+      <div class="amenity-card">
+        <div class="amenity-icon">🍳</div>
+        <h3>Included Breakfast</h3>
+        <p>Complimentary gourmet breakfast buffet for all guests</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ GALLERY ════════════════════════════════════ -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Our Property</span>
+      <h2 class="section-title">A Glimpse of Luxury</h2>
+      <p class="section-subtitle">Every corner of Hotel Vapi is crafted to inspire and delight</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item-large" id="gItem1">
+        <img src="Lounge_6.jpeg" alt="Grand Lobby" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Grand Lobby</span></div>
+      </div>
+      <div class="gallery-item" id="gItem2">
+        <img src="Room_4.jpeg" alt="Luxury Suite" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Luxury Suite</span></div>
+      </div>
+      <div class="gallery-item" id="gItem3">
+        <img src="Room_1.jpeg" alt="Premium Room" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Premium Room</span></div>
+      </div>
+      <div class="gallery-item" id="gItem4">
+        <img src="View_1.jpeg" alt="Stunning Views" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Stunning Views</span></div>
+      </div>
+      <div class="gallery-item" id="gItem5">
+        <img src="Lounge_1.jpeg" alt="Lounge Area" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Lounge Area</span></div>
+      </div>
+      <div class="gallery-item gallery-item-wide" id="gItem6">
+        <img src="Image_1.jpeg" alt="Hotel Experience" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Hotel Experience</span></div>
+      </div>
+      
+      <!-- Additional Images -->
+      <div class="gallery-item" id="gItem7">
+        <img src="Room_2.jpeg" alt="Room View" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Room View</span></div>
+      </div>
+      <div class="gallery-item" id="gItem8">
+        <img src="Room_3.jpeg" alt="Executive Room" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Executive Room</span></div>
+      </div>
+      <div class="gallery-item" id="gItem9">
+        <img src="Lounge_2.jpeg" alt="Lounge Setup" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Lounge Setup</span></div>
+      </div>
+      <div class="gallery-item" id="gItem10">
+        <img src="Lounge_3.jpeg" alt="Dining Area" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Dining Area</span></div>
+      </div>
+      <div class="gallery-item" id="gItem11">
+        <img src="Lounge_4.jpeg" alt="Relaxation Lounge" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Relaxation Lounge</span></div>
+      </div>
+      <div class="gallery-item" id="gItem12">
+        <img src="Lounge_5.jpeg" alt="Premium Dining" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Premium Dining</span></div>
+      </div>
+      <div class="gallery-item" id="gItem13">
+        <img src="View_8.jpeg" alt="Scenic View" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Scenic View</span></div>
+      </div>
+      <div class="gallery-item" id="gItem14">
+        <img src="View_11.jpeg" alt="Property Exterior" loading="lazy" />
+        <div class="gallery-item-overlay"><span>Property Exterior</span></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="#contact" class="btn btn-outline btn-lg">Plan Your Visit →</a>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="gallery-lightbox" id="galleryLightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-prev" onclick="event.stopPropagation(); shiftLightbox(-1)">❮</button>
+    <button class="lightbox-next" onclick="event.stopPropagation(); shiftLightbox(1)">❯</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ TESTIMONIALS ════════════════════════════════ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Guest Reviews</span>
+      <h2 class="section-title">What Our Guests Say</h2>
+    </div>
+
+    <div class="testimonials-slider" id="testimonialsSlider">
+      <div class="testimonial-card active">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Absolutely stunning property! The Presidential Suite was beyond our expectations. The staff was incredibly attentive and the food was world-class. Will definitely be back!"</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">RK</div>
+          <div>
+            <strong>Rajesh Kumar</strong>
+            <span>Mumbai, Maharashtra</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Hotel Vapi exceeded every expectation. The Deluxe Pool Side room had the most breathtaking views. Online booking was seamless and instant confirmation was a great touch."</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">PS</div>
+          <div>
+            <strong>Priya Sharma</strong>
+            <span>Ahmedabad, Gujarat</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Perfect family vacation! The Family Comfort room was spacious and the kids loved the pool. Staff made sure we had everything we needed. Highly recommended!"</p>
+        <div class="testimonial-author">
+          <div class="t-avatar">AP</div>
+          <div>
+            <strong>Anand Patel</strong>
+            <span>Surat, Gujarat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slider-dots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ CONTACT ═════════════════════════════════════ -->
+<section class="section section-dark" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <span class="section-badge">Get In Touch</span>
+        <h2>Contact Us</h2>
+        <p>We're here to help you plan the perfect stay. Reach out to our team anytime.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Address</strong>
+              <p>Hotel Vapi, Industrial Area,<br />Vapi, Gujarat - 396195, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📞</span>
+            <div>
+              <strong>Phone</strong>
+              <p>+91-260-XXXXXXX</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <p>info@hotelvapi.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">🕐</span>
+            <div>
+              <strong>Check-in / Check-out</strong>
+              <p>Check-in: 2:00 PM | Check-out: 11:00 AM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
+          <div class="form-group">
+            <input type="text"  id="contactName"  class="form-control" placeholder="Your Name"    required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="contactEmail" class="form-control" placeholder="Your Email"   required />
+          </div>
+          <div class="form-group">
+            <input type="text"  id="contactSubject" class="form-control" placeholder="Subject"    required />
+          </div>
+          <div class="form-group">
+            <textarea id="contactMessage" class="form-control" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full">Send Message 📩</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ FOOTER ══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="vaapi-logo.png" alt="Vaapi Comfort Inn" style="height:60px;filter:brightness(0) invert(1);opacity:0.9;" />
+        </div>
+        <p>Luxury hospitality in the heart of Vapi, Gujarat. Your comfort is our promise.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html">All Rooms</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="dashboard.html">My Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Room Types</h4>
+        <ul>
+          <li><a href="rooms.html?type=Standard">Standard Rooms</a></li>
+          <li><a href="rooms.html?type=Deluxe">Deluxe Rooms</a></li>
+          <li><a href="rooms.html?type=Suite">Suites</a></li>
+          <li><a href="rooms.html?type=Presidential">Presidential Suite</a></li>
+          <li><a href="rooms.html?type=Family">Family Rooms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Refund Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2024 Vaapi Comfort Inn. All rights reserved. Made with ❤️ in Gujarat, India.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+// ── GALLERY LIGHTBOX ──────────────────────────────
+const galleryImages = [
+  { src: 'images/Lounge_6.jpeg', caption: 'Grand Lobby' },
+  { src: 'images/Room_4.jpeg', caption: 'Luxury Suite' },
+  { src: 'images/Room_1.jpeg', caption: 'Premium Room' },
+  { src: 'images/View_1.jpeg', caption: 'Stunning Views' },
+  { src: 'images/Lounge_1.jpeg', caption: 'Lounge Area' },
+  { src: 'images/Image_1.jpeg', caption: 'Hotel Experience' },
+  { src: 'images/Room_2.jpeg', caption: 'Room View' },
+  { src: 'images/Room_3.jpeg', caption: 'Executive Room' },
+  { src: 'images/Lounge_2.jpeg', caption: 'Lounge Setup' },
+  { src: 'images/Lounge_3.jpeg', caption: 'Dining Area' },
+  { src: 'images/Lounge_4.jpeg', caption: 'Relaxation Lounge' },
+  { src: 'images/Lounge_5.jpeg', caption: 'Premium Dining' },
+  { src: 'images/View_8.jpeg', caption: 'Scenic View' },
+  { src: 'images/View_11.jpeg', caption: 'Property Exterior' },
+  { src: 'images/Image_2.jpeg', caption: 'Gallery Image' },
+  { src: 'images/Image_3.jpeg', caption: 'Gallery Image' },
+  { src: 'images/Image_4.jpeg', caption: 'Gallery Image' },
+  { src: 'images/Room-7.jpeg', caption: 'Room Experience' },
+  { src: 'images/Room_5.jpeg', caption: 'Deluxe Room' },
+  { src: 'images/Room_6.jpeg', caption: 'Superior Room' },
+  { src: 'images/View_2.jpeg', caption: 'Beautiful View' },
+  { src: 'images/View_3.jpeg', caption: 'Picturesque' },
+  { src: 'images/View_4.jpeg', caption: 'Breathtaking Surroundings' },
+  { src: 'images/View_5.jpeg', caption: 'Exterior View' },
+  { src: 'images/View_6.jpeg', caption: 'Landscape' },
+  { src: 'images/View_7.jpeg', caption: 'Property Grounds' },
+  { src: 'images/View_9.jpeg', caption: 'Stunning Landscape' },
+  { src: 'images/View_10.jpeg', caption: 'Magnificent View' }
+];
+let currentLightboxIdx = 0;
+
+document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+  item.addEventListener('click', () => openLightbox(idx));
+});
+
+function openLightbox(idx) {
+  currentLightboxIdx = idx;
+  const lb = document.getElementById('galleryLightbox');
+  document.getElementById('lightboxImg').src = galleryImages[idx].src;
+  document.getElementById('lightboxCaption').textContent = galleryImages[idx].caption;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('galleryLightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function shiftLightbox(dir) {
+  currentLightboxIdx = (currentLightboxIdx + dir + galleryImages.length) % galleryImages.length;
+  document.getElementById('lightboxImg').src = galleryImages[currentLightboxIdx].src;
+  document.getElementById('lightboxCaption').textContent = galleryImages[currentLightboxIdx].caption;
+}
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('galleryLightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft')  shiftLightbox(-1);
+  if (e.key === 'ArrowRight') shiftLightbox(1);
+});
+
+</script>
+</body>
+</html>
