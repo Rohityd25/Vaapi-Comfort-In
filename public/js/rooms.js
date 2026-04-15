@@ -11,16 +11,6 @@ let allFilters  = {};
 let maxPrice    = 25000;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Pre-fill dates from URL params
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('checkIn'))  document.getElementById('filterCheckIn').value  = params.get('checkIn');
-  if (params.get('checkOut')) document.getElementById('filterCheckOut').value = params.get('checkOut');
-  if (params.get('capacity')) document.getElementById('filterGuests').value   = params.get('capacity');
-  if (params.get('type')) {
-    document.querySelectorAll('.type-filter').forEach(cb => {
-      if (cb.value === params.get('type')) cb.checked = true;
-    });
-  }
 
   loadRooms();
 });
@@ -28,20 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // ── Load rooms with current filters ──────────────────────────────────────────
 async function loadRooms() {
   const grid   = document.getElementById('roomsGrid');
-  const count  = document.getElementById('roomsCount');
   const paging = document.getElementById('pagination');
 
   grid.innerHTML  = '<div class="room-skeleton"></div>'.repeat(6);
-  count.textContent = 'Loading...';
 
   try {
-    const params = buildFilterParams();
+    const params = { page: currentPage, limit: 9, sort: '-createdAt' };
     const data   = await RoomsAPI.getAll(params);
 
     const rooms = data.rooms || [];
     renderRooms(rooms);
-    const total = data.totalRooms ?? rooms.length;
-    count.textContent = `${total} room(s) found`;
     renderPagination(data.totalPages || 1, data.currentPage || 1);
   } catch (err) {
     grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:4rem 0;">
@@ -49,37 +35,10 @@ async function loadRooms() {
       <p>Could not load rooms. Please try again.</p>
       <p style="margin-top:.5rem;font-size:.85rem;">Or <a href="index.html#contact" style="color:var(--gold)">contact us</a> to check availability.</p>
     </div>`;
-    count.textContent = '0 rooms found';
   }
 }
 
-function buildFilterParams() {
-  const checkIn  = document.getElementById('filterCheckIn')?.value;
-  const checkOut = document.getElementById('filterCheckOut')?.value;
-  const guests   = document.getElementById('filterGuests')?.value;
-  const sort     = document.getElementById('sortBy')?.value;
-  const keyword  = document.getElementById('roomSearch')?.value;
-  const priceMin = document.getElementById('priceRangeMin')?.value;
-  const priceMax = document.getElementById('priceRangeMax')?.value;
 
-  const selectedTypes = [...document.querySelectorAll('.type-filter:checked')].map(cb => cb.value);
-
-  const params = {
-    page:  currentPage,
-    limit: 9,
-    sort:  sort || '-createdAt',
-  };
-
-  if (checkIn)            params.checkIn   = checkIn;
-  if (checkOut)           params.checkOut  = checkOut;
-  if (guests)             params.capacity  = guests;
-  if (keyword)            params.keyword   = keyword;
-  if (priceMin && priceMin > 0)   params.minPrice  = priceMin;
-  if (priceMax && priceMax < 25000) params.maxPrice = priceMax;
-  if (selectedTypes.length === 1) params.roomType = selectedTypes[0];
-
-  return params;
-}
 
 function renderRooms(rooms) {
   const grid = document.getElementById('roomsGrid');
@@ -144,36 +103,3 @@ function renderPagination(totalPages, currentPg) {
   }
 }
 
-function applyFilters() { currentPage = 1; loadRooms(); }
-
-function clearFilters() {
-  document.getElementById('filterCheckIn').value  = '';
-  document.getElementById('filterCheckOut').value = '';
-  document.getElementById('filterGuests').value   = '';
-  document.getElementById('roomSearch').value     = '';
-  document.getElementById('sortBy').value         = '-createdAt';
-  document.getElementById('priceRangeMin').value  = 0;
-  document.getElementById('priceRangeMax').value  = 25000;
-  document.getElementById('priceMin').textContent = '0';
-  document.getElementById('priceMax').textContent = '25,000';
-  document.querySelectorAll('.type-filter').forEach(cb => cb.checked = false);
-  currentPage = 1;
-  loadRooms();
-}
-
-function updatePriceFilter() {
-  const min = parseInt(document.getElementById('priceRangeMin').value);
-  const max = parseInt(document.getElementById('priceRangeMax').value);
-  document.getElementById('priceMin').textContent = min.toLocaleString('en-IN');
-  document.getElementById('priceMax').textContent = max.toLocaleString('en-IN');
-  applyFilters();
-}
-
-function debounceSearch() {
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(() => { currentPage = 1; loadRooms(); }, 400);
-}
-
-function toggleFilterSidebar() {
-  document.getElementById('filterSidebar').classList.toggle('open');
-}
