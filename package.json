@@ -11,7 +11,7 @@
   },
   "keywords": ["hotel", "booking", "nodejs", "express", "mongodb"],
   "author": "Hotel Vapi",
-  "engines": { "node": "18.x" },
+  "engines": { "node": "22.x" },
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
