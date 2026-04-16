@@ -1,123 +1,132 @@
-# 🏨 Vaapi Comfort Inn
+# 🏨 Vaapi Comfort Inn - Beginner's Guide & Documentation
 
-> *Where Mountains Meet Luxury*
+Welcome to the **Vaapi Comfort Inn** website project! 
 
-A modern, full-featured hotel website for **Vaapi Comfort Inn** — built with Node.js, Express, and Vanilla HTML/CSS/JS. No database required.
+This guide is specifically written for beginners. It will explain exactly how the website works, how the files are organized, and how you can easily make changes to it yourself as you learn web development.
 
-![Vaapi Comfort Inn](public/hotel-day.jpg)
-
----
-
-## ✨ Features
-
-- 🖼️ **Hero Slideshow** — Auto-cycling through 3 real hotel photos (day, aerial, night)
-- 🛏️ **Room Categories** — 6 premium room types with pricing (Standard, Deluxe, Suite, Family, Presidential, Honeymoon)
-- 🏅 **Amenities Section** — Infinity Pool, Fine Dining, Luxury Spa, Fitness Center & more
-- 🖼️ **Gallery** — Masonry-style photo gallery with lightbox
-- 📩 **Contact Form** — Powered by Web3Forms (no database needed, delivers to email)
-- 📱 **Fully Responsive** — Mobile-first design
-- 🌙 **Dark Luxury Theme** — Gold accents, Playfair Display typography
+> **What does this project do?** It's a complete, modern hotel website. It has a beautiful homepage, a secure contact form to receive booking requests directly in your email, a gallery, and room listings.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 1. How to Start the Project on Your Computer
 
-### Prerequisites
-- [Node.js](https://nodejs.org/) v16+
+To see the website on your own computer, you need to "run the local server". 
 
-### Installation
+1. Open your terminal or command prompt.
+2. Make sure you are inside the `Vaapi-Hotel-main` folder.
+3. Type the following command and press Enter:
+   ```bash
+   npm run dev
+   ```
+4. Open your web browser (like Google Chrome).
+5. In the internet address bar, type: **http://localhost:5000** 
+
+*That's it! You should now see the website running.*
+
+---
+
+## 📁 2. Understanding the Folder Structure
+
+When you open the project in your code editor (like VS Code), you will see several folders and files. Here is a simple breakdown of what everything does:
+
+```text
+Vaapi-Comfort-In/
+│
+├── public/                 # 🌐 THE FRONTEND (What the user sees in the browser)
+│   ├── index.html          # The main homepage (Hero, Amenities, Contact form)
+│   ├── rooms.html          # The page that lists all the specific room details
+│   ├── css/                
+│   │   └── style.css       # The styling file (Colors, Fonts, Layouts, Animations)
+│   ├── js/                 
+│   │   ├── main.js         # JavaScript for the homepage (Slideshow, Menus)
+│   │   ├── rooms.js        # JavaScript for filtering rooms
+│   │   └── api.js          # Helper code for sending the contact form
+│   ├── [Images...]         # All the .jpg, .png, and .jpeg files live here!
+│
+├── api/
+│   └── index.js            # ⚙️ THE BACKEND (The server that runs the website)
+│
+├── package.json            # 📦 The "Menu" of your project (lists dependencies/commands)
+└── package-lock.json       # Exact versions of the tools used
+```
+
+---
+
+## 🛠️ 3. How to Modify the Website Yourself (A Step-by-Step Guide)
+
+You can easily change the website by editing the code. Whenever you save a file, just refresh your browser to see the changes!
+
+### 📝 A. How to Change Text (Headings, Paragraphs)
+1. Open `public/index.html` in your code editor.
+2. Scroll to find the text you want to change. For example, to change the main title:
+   *Find this:*
+   ```html
+   <h1 class="hero-title hero-name">
+     Vaapi Comfort Inn
+   </h1>
+   ```
+   *Change it to:*
+   ```html
+   <h1 class="hero-title hero-name">
+     My Custom Hotel name!
+   </h1>
+   ```
+3. Save the file and refresh your browser.
+
+### 🖼️ B. How to Change Images
+There are two ways images are used in this project:
+1. **HTML Images (`<img>` tags):** 
+   - Example: The gallery or the amenities section in `public/index.html`. 
+   - To change it, replace the URL in `src="..."`. You can put your own image inside the `public/` folder (e.g., `my-photo.jpg`) and change the code to `<img src="my-photo.jpg" />`.
+2. **CSS Background Images:**
+   - Example: The large hero slideshow images at the top of the homepage.
+   - Look inside `public/index.html` for `<div class="hero-slide" style="... background-image:url('hotel-day.jpg'); ...">` 
+   - Change `hotel-day.jpg` to the name of your new image file located in the `public/` folder.
+
+### 🎨 C. How to Change Colors and Branding
+All the colors for the website are conveniently located at the very top of `public/css/style.css` using "CSS Variables". 
+
+1. Open `public/css/style.css`.
+2. Look at the top for the `:root` section:
+   ```css
+   :root {
+     --gold:       #c9a96e;      /* The main gold color */
+     --dark-bg:    #0d0d1a;      /* The darkest background color */
+     --text-primary: #f0ece4;    /* The color of main text */
+     /* ... */
+   }
+   ```
+3. Change the Hex Code (e.g., `#c9a96e`) to any color you like (e.g., `#ff0000` for bright red). 
+4. Because variables are used, changing it here will **magically update the color everywhere** across the entire website!
+
+### 🛏️ D. How to Change Room Pricing or Room Types
+Since this website specifically avoids confusing databases to be beginner-friendly, you change the rooms directly in the HTML.
+1. To change the homepage room cards: open `public/index.html` and look for the `<!-- ROOM CATEGORIES -->` section. Edit the text like `From ₹2,200/night`.
+2. To change the detailed rooms page: open `public/rooms.html`.
+
+---
+
+## 📩 4. How the Contact Form Works
+
+If you scroll to the bottom, there is a "Contact Us" / Booking Request form. 
+- The form does **not** need a complicated database! 
+- It uses a free tool called **Web3Forms** to grab the information users type in and emails it straight to your inbox.
+- If you want to connect it to your own email:
+  1. Go to [Web3Forms Website](https://web3forms.com/).
+  2. Create a free Access Key for your email address.
+  3. You will add this key inside the `api.js` or `main.js` files where forms are handled.
+
+---
+
+## 🚀 5. Saving Your Learning Progress to GitHub
+
+Whenever you make changes and are happy with them, you should back them up to GitHub. Run these three commands in your terminal:
 
 ```bash
-# Clone the repo
-git clone https://github.com/Rohityd25/Vaapi-Comfort-In.git
-cd Vaapi-Comfort-In
-
-# Install dependencies
-npm install
-
-# Create environment file
-cp .env.example .env
-# Edit .env and add your Web3Forms key
-
-# Start the server
-npm start
-```
-
-Visit: **http://localhost:5000**
-
----
-
-## 📁 Project Structure
-
-```
-Vaapi-Comfort-In/
-├── public/
-│   ├── index.html          # Homepage with hero slideshow
-│   ├── rooms.html          # Room listing & filter page
-│   ├── css/
-│   │   └── style.css       # Dark luxury design system
-│   ├── js/
-│   │   ├── main.js         # Homepage logic & slideshow
-│   │   ├── rooms.js        # Rooms filter & pagination
-│   │   └── api.js          # API helper functions
-│   ├── hotel-day.jpg       # Hero image 1
-│   ├── hotel-aerial.jpg    # Hero image 2
-│   ├── hotel-night.jpg     # Hero image 3
-│   └── vaapi-logo.png      # Hotel logo
-├── server.js               # Express server + static room data
-├── .env.example            # Environment variable template
-└── package.json
+git add .
+git commit -m "update: learning how to change text and colors"
+git push origin main
 ```
 
 ---
-
-## ⚙️ Environment Variables
-
-Create a `.env` file with:
-
-```env
-PORT=5000
-WEB3FORMS_KEY=your_web3forms_access_key_here
-```
-
-Get your free Web3Forms key at: [web3forms.com](https://web3forms.com)
-
----
-
-## 🛏️ Room Categories
-
-| Room | Price/Night |
-|------|-------------|
-| Standard Comfort | ₹2,200 |
-| Deluxe Pool Side | ₹4,500 |
-| Family Room | ₹5,500 |
-| Honeymoon Suite | ₹12,000 |
-| Executive Suite | ₹8,500 |
-| Presidential Suite | ₹18,000 |
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Server | Node.js + Express |
-| Frontend | Vanilla HTML, CSS, JavaScript |
-| Fonts | Google Fonts (Playfair Display, Inter) |
-| Email | Web3Forms API |
-| Hosting | Any Node.js host (Railway, Render, etc.) |
-
----
-
-## 📞 Contact
-
-**Vaapi Comfort Inn**  
-📍 Vapi, Gujarat, India  
-📞 Call Us for bookings  
-🌐 [github.com/Rohityd25/Vaapi-Comfort-In](https://github.com/Rohityd25/Vaapi-Comfort-In)
-
----
-
-## 📄 License
-
-This project is private — all rights reserved © Vaapi Comfort Inn.
+*Happy Coding! Don't be afraid to break things — changing code and seeing what happens is the absolute best way to learn!*
