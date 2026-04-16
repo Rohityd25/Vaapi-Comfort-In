@@ -420,19 +420,50 @@
 
       <div class="contact-form-wrap">
         <form class="contact-form" id="contactForm" onsubmit="submitContactForm(event)">
-          <div class="form-group">
-            <input type="text"  id="contactName"  class="form-control" placeholder="Your Name"    required />
+          <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <input type="text"  id="contactName"  class="form-control" name="name" placeholder="Full Name" required />
+            <input type="tel"   id="contactPhone" class="form-control" name="phone" placeholder="Phone Number" required />
           </div>
           <div class="form-group">
-            <input type="email" id="contactEmail" class="form-control" placeholder="Your Email"   required />
+            <input type="email" id="contactEmail" class="form-control" name="email" placeholder="Email Address" required />
+          </div>
+          <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted);">Check-in Date</label>
+              <input type="date" id="contactCheckIn" class="form-control" name="checkIn" required />
+            </div>
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted);">Check-out Date</label>
+              <input type="date" id="contactCheckOut" class="form-control" name="checkOut" required />
+            </div>
+          </div>
+          <div class="form-group" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted);">Guests</label>
+              <select id="contactGuests" class="form-control" name="guests" required>
+                <option value="1">1 Guest</option>
+                <option value="2" selected>2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5+">5+ Guests</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size: 0.85rem; color: var(--text-muted);">Room Type</label>
+              <select id="contactRoomType" class="form-control" name="roomType" required>
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+                <option value="Family">Family</option>
+                <option value="Presidential">Presidential</option>
+                <option value="Any Room">Any Room</option>
+              </select>
+            </div>
           </div>
           <div class="form-group">
-            <input type="text"  id="contactSubject" class="form-control" placeholder="Subject"    required />
+            <textarea id="contactMessage" class="form-control" name="message" rows="4" placeholder="Message (Optional)"></textarea>
           </div>
-          <div class="form-group">
-            <textarea id="contactMessage" class="form-control" rows="5" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-full">Send Message 📩</button>
+          <button type="submit" class="btn btn-gold btn-full">Request Booking 📩</button>
         </form>
       </div>
     </div>

@@ -27,6 +27,11 @@ function setTodayDates() {
   const co = document.getElementById('heroCheckOut');
   if (ci) { ci.value = fmt(today);    ci.min = fmt(today); }
   if (co) { co.value = fmt(tomorrow); co.min = fmt(tomorrow); }
+
+  const contactCi = document.getElementById('contactCheckIn');
+  const contactCo = document.getElementById('contactCheckOut');
+  if (contactCi) { contactCi.value = fmt(today);    contactCi.min = fmt(today); }
+  if (contactCo) { contactCo.value = fmt(tomorrow); contactCo.min = fmt(tomorrow); }
 }
 
 // ── Search rooms (redirect to rooms.html with params) ────────────────────────
@@ -208,25 +213,38 @@ async function submitContactForm(e) {
   btn.disabled = true;
   btn.textContent = 'Sending... ⏳';
 
+  // We are communicating directly to Web3Forms to eliminate backend dependencies.
+  // Replace YOUR_WEB3FORMS_KEY with your actual access key from web3forms.com
   const payload = {
-    name:    document.getElementById('contactName')?.value,
-    email:   document.getElementById('contactEmail')?.value,
-    subject: document.getElementById('contactSubject')?.value,
-    message: document.getElementById('contactMessage')?.value,
+    access_key: "YOUR_WEB3FORMS_KEY", 
+    subject: "New Booking Request",
+    name:     document.getElementById('contactName')?.value,
+    phone:    document.getElementById('contactPhone')?.value,
+    email:    document.getElementById('contactEmail')?.value,
+    checkIn:  document.getElementById('contactCheckIn')?.value,
+    checkOut: document.getElementById('contactCheckOut')?.value,
+    guests:   document.getElementById('contactGuests')?.value,
+    roomType: document.getElementById('contactRoomType')?.value,
+    message:  document.getElementById('contactMessage')?.value,
   };
 
   try {
-    const res  = await fetch('/api/inquiry', {
+    const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
     });
     const data = await res.json();
     if (data.success) {
-      showToast('✅ Message sent! We\'ll reply within 24 hours.', 'success');
+      showToast('✅ Booking Request Sent! We will contact you soon.', 'success');
       e.target.reset();
+      
+      // Reset dates back to default
+      if (typeof setTodayDates === 'function') setTodayDates();
     } else {
-      showToast(data.message || 'Could not send. Please try again.', 'error');
+      // Fallback if access_key is fake and fails
+      console.warn('Web3Forms error:', data.message);
+      showToast('⚠️ Remember to add your Web3Forms Access Key in main.js!', 'warning');
     }
   } catch (err) {
     showToast('Network error. Please try again.', 'error');
