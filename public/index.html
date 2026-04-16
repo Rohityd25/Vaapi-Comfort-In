@@ -46,37 +46,25 @@
 </nav>
 
 <!-- ════════════════════════════════════ HERO ════════════════════════════════════ -->
-<section class="hero" id="hero" style="position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center;justify-content:center;">
+<section class="hero hero-layout" id="hero">
 
-  <!-- SLIDESHOW IMAGES - directly as children, z-index managed inline -->
+  <!-- HERO IMAGE - directly as children, z-index managed inline -->
   <div id="heroBg" style="position:absolute;inset:0;z-index:0;">
-    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-day.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:1;"></div>
-    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-aerial.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:0;"></div>
-    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel-night.jpg');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:0;"></div>
+    <div class="hero-slide" style="position:absolute;inset:0;background-image:url('hotel_hero_banner.png');background-size:cover;background-position:center;transition:opacity 1.5s ease;opacity:1;"></div>
     <!-- Light gradient overlay -->
     <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.10) 40%,rgba(0,0,0,0.55) 100%);z-index:1;"></div>
   </div>
 
   <!-- Slideshow dots -->
-  <div class="hero-slide-dots" id="heroSlideDots" style="position:absolute;bottom:5rem;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:0.5rem;"></div>
+  <div class="hero-slide-dots" id="heroSlideDots" style="display:none;"></div>
 
-  <div class="hero-content">
+  <!-- Hotel name pinned near top -->
+  <div class="hero-top" style="position:relative;z-index:5;text-align:center;">
     <div class="hero-divider-line"></div>
-    <h1 class="hero-title hero-name">
-      Vaapi Comfort Inn
-    </h1>
-    <div class="hero-tagline-wrap">
-      <div class="hero-line"></div>
-      <p class="hero-tagline">Where Mountains Meet Luxury</p>
-      <div class="hero-line"></div>
-    </div>
-    <p class="hero-subtitle">
-      Nestled in the heart of nature — breathtaking views,
-      world-class comfort, and memories that last a lifetime.
-    </p>
+    <h1 class="hero-title hero-name">Vaapi Comfort Inn</h1>
   </div>
 
-
+  <!-- Spacer so scroll indicator sits at bottom -->
   <div class="hero-scroll" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">
     <span>Scroll</span>
     <div class="scroll-line"></div>

@@ -142,6 +142,24 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative; overflow: hidden;
   background: #000;
 }
+
+.hero-layout {
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8rem 1.5rem 4rem;
+}
+
+@media (max-width: 768px) {
+  .hero-layout {
+    padding: 6rem 1rem 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-layout {
+    padding: 5rem 1rem 2rem;
+  }
+}
 .hero-bg {
   position: absolute; inset: 0;
   overflow: hidden;
