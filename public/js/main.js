@@ -21,6 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const sel = document.getElementById('contactRoomType');
     if (sel) sel.value = rType;
   }
+
+  // Ensure hash navigation reaches its target even after layout shifts
+  if (window.location.hash === '#contact') {
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 600);
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 1200);
+  }
 });
 
 // ── Booking Redirect Helper ───────────────────────────────────────────────────
@@ -36,6 +49,10 @@ window.handleBookingRedirect = function(roomType = '') {
       contactSec.scrollIntoView({ behavior: 'smooth' });
       // Update URL hash
       window.history.pushState(null, null, '#contact');
+
+      // Re-scroll gracefully to outrun lazy-load layout jumps
+      setTimeout(() => contactSec.scrollIntoView({ behavior: 'smooth' }), 100);
+      setTimeout(() => contactSec.scrollIntoView({ behavior: 'smooth' }), 500);
     }
   } else {
     window.location.href = `/?room=${encodeURIComponent(roomType)}#contact`;

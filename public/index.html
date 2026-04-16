@@ -31,12 +31,12 @@
       <li><a href="rooms.html" class="btn btn-gold">Rooms</a></li>
       <li><a href="#amenities" class="btn btn-gold">Amenities</a></li>
       <li><a href="#gallery" class="btn btn-gold">Gallery</a></li>
-      <li><a href="#contact" class="btn btn-gold">Contact</a></li>
+      <li><a href="javascript:void(0)" onclick="window.handleBookingRedirect()" class="btn btn-gold">Contact</a></li>
     </ul>
 
     <div class="nav-actions" id="navActions">
       <a href="tel:+919876543210" class="btn btn-outline" id="callBtn">📞 Call Us</a>
-      <a href="#contact" class="btn btn-gold" id="bookNowBtn">Book Now</a>
+      <button onclick="window.handleBookingRedirect()" class="btn btn-gold" id="bookNowBtn" style="cursor:pointer; font-family:inherit; font-size: 0.9rem;">Book Now</button>
     </div>
 
     <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
@@ -251,67 +251,67 @@
 
     <div class="gallery-grid">
       <div class="gallery-item gallery-item-large" id="gItem1">
-        <img src="Lounge_6.jpeg" alt="Grand Lobby" loading="lazy" />
+        <img src="Lounge_6.jpeg" alt="Grand Lobby"  />
         <div class="gallery-item-overlay"><span>Grand Lobby</span></div>
       </div>
       <div class="gallery-item" id="gItem2">
-        <img src="Room_4.jpeg" alt="Luxury Suite" loading="lazy" />
+        <img src="Room_4.jpeg" alt="Luxury Suite"  />
         <div class="gallery-item-overlay"><span>Luxury Suite</span></div>
       </div>
       <div class="gallery-item" id="gItem3">
-        <img src="Room_1.jpeg" alt="Premium Room" loading="lazy" />
+        <img src="Room_1.jpeg" alt="Premium Room"  />
         <div class="gallery-item-overlay"><span>Premium Room</span></div>
       </div>
       <div class="gallery-item" id="gItem4">
-        <img src="View_1.jpeg" alt="Stunning Views" loading="lazy" />
+        <img src="View_1.jpeg" alt="Stunning Views"  />
         <div class="gallery-item-overlay"><span>Stunning Views</span></div>
       </div>
       <div class="gallery-item" id="gItem5">
-        <img src="Lounge_1.jpeg" alt="Lounge Area" loading="lazy" />
+        <img src="Lounge_1.jpeg" alt="Lounge Area"  />
         <div class="gallery-item-overlay"><span>Lounge Area</span></div>
       </div>
       <div class="gallery-item gallery-item-wide" id="gItem6">
-        <img src="Image_1.jpeg" alt="Hotel Experience" loading="lazy" />
+        <img src="Image_1.jpeg" alt="Hotel Experience"  />
         <div class="gallery-item-overlay"><span>Hotel Experience</span></div>
       </div>
       
       <!-- Additional Images -->
       <div class="gallery-item" id="gItem7">
-        <img src="Room_2.jpeg" alt="Room View" loading="lazy" />
+        <img src="Room_2.jpeg" alt="Room View"  />
         <div class="gallery-item-overlay"><span>Room View</span></div>
       </div>
       <div class="gallery-item" id="gItem8">
-        <img src="Room_3.jpeg" alt="Executive Room" loading="lazy" />
+        <img src="Room_3.jpeg" alt="Executive Room"  />
         <div class="gallery-item-overlay"><span>Executive Room</span></div>
       </div>
       <div class="gallery-item" id="gItem9">
-        <img src="Lounge_2.jpeg" alt="Lounge Setup" loading="lazy" />
+        <img src="Lounge_2.jpeg" alt="Lounge Setup"  />
         <div class="gallery-item-overlay"><span>Lounge Setup</span></div>
       </div>
       <div class="gallery-item" id="gItem10">
-        <img src="Lounge_3.jpeg" alt="Dining Area" loading="lazy" />
+        <img src="Lounge_3.jpeg" alt="Dining Area"  />
         <div class="gallery-item-overlay"><span>Dining Area</span></div>
       </div>
       <div class="gallery-item" id="gItem11">
-        <img src="Lounge_4.jpeg" alt="Relaxation Lounge" loading="lazy" />
+        <img src="Lounge_4.jpeg" alt="Relaxation Lounge"  />
         <div class="gallery-item-overlay"><span>Relaxation Lounge</span></div>
       </div>
       <div class="gallery-item" id="gItem12">
-        <img src="Lounge_5.jpeg" alt="Premium Dining" loading="lazy" />
+        <img src="Lounge_5.jpeg" alt="Premium Dining"  />
         <div class="gallery-item-overlay"><span>Premium Dining</span></div>
       </div>
       <div class="gallery-item" id="gItem13">
-        <img src="View_8.jpeg" alt="Scenic View" loading="lazy" />
+        <img src="View_8.jpeg" alt="Scenic View"  />
         <div class="gallery-item-overlay"><span>Scenic View</span></div>
       </div>
       <div class="gallery-item" id="gItem14">
-        <img src="View_11.jpeg" alt="Property Exterior" loading="lazy" />
+        <img src="View_11.jpeg" alt="Property Exterior"  />
         <div class="gallery-item-overlay"><span>Property Exterior</span></div>
       </div>
     </div>
 
     <div class="text-center mt-3">
-      <a href="#contact" class="btn btn-outline btn-lg">Plan Your Visit →</a>
+      <button onclick="window.handleBookingRedirect()" class="btn btn-outline btn-lg" style="cursor: pointer; font-family: inherit;">Plan Your Visit →</button>
     </div>
   </div>
 
