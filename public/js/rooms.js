@@ -33,7 +33,7 @@ async function loadRooms() {
     grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:var(--text-muted);padding:4rem 0;">
       <div style="font-size:3rem;margin-bottom:1rem;">🔌</div>
       <p>Could not load rooms. Please try again.</p>
-      <p style="margin-top:.5rem;font-size:.85rem;">Or <a href="index.html#contact" style="color:var(--gold)">contact us</a> to check availability.</p>
+      <p style="margin-top:.5rem;font-size:.85rem;">Or <a href="/#contact" style="color:var(--gold)">contact us</a> to check availability.</p>
     </div>`;
   }
 }
@@ -64,7 +64,7 @@ if (typeof createRoomCard === 'undefined') {
   function createRoomCard(room) {
     const card = document.createElement('div');
     card.className = 'room-card';
-    card.onclick = () => window.location.href = `/index.html#contact`;
+    card.onclick = () => window.location.href = `/?room=${encodeURIComponent(room.roomType || '')}#contact`;
     const img  = room.images?.[0]?.url || 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600';
     const amenMap = { wifi:'📶 WiFi', ac:'❄️ AC', tv:'📺 TV', breakfast:'🍳 Breakfast', balcony:'🌅 Balcony', jacuzzi:'🛁 Jacuzzi' };
     const tags = Object.entries(room.amenities||{}).filter(([,v])=>v).slice(0,4).map(([k])=>`<span class="amenity-tag">${amenMap[k]||k}</span>`).join('');
@@ -82,7 +82,7 @@ if (typeof createRoomCard === 'undefined') {
         <div class="room-card-amenities">${tags}</div>
         <div class="room-card-footer">
           <div class="room-price">₹${Number(room.pricePerNight).toLocaleString('en-IN')} <span>/ night</span></div>
-          <button class="btn btn-gold" onclick="event.stopPropagation();window.location.href='/index.html#contact'">Book Now</button>
+          <button class="btn btn-gold" onclick="event.stopPropagation();window.location.href='/?room=${encodeURIComponent(room.roomType || '')}#contact'">Book Now</button>
         </div>
       </div>`;
     return card;

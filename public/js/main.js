@@ -13,7 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonialsAutoSlide();
   initParticles();
   initHeroSlideshow();
+  
+  // Read room param from URL if present
+  const params = new URLSearchParams(window.location.search);
+  const rType = params.get('room');
+  if (rType) {
+    const sel = document.getElementById('contactRoomType');
+    if (sel) sel.value = rType;
+  }
 });
+
+// ── Booking Redirect Helper ───────────────────────────────────────────────────
+window.handleBookingRedirect = function(roomType = '') {
+  if (roomType) {
+    const sel = document.getElementById('contactRoomType');
+    if (sel) sel.value = roomType;
+  }
+  
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    const contactSec = document.getElementById('contact');
+    if (contactSec) {
+      contactSec.scrollIntoView({ behavior: 'smooth' });
+      // Update URL hash
+      window.history.pushState(null, null, '#contact');
+    }
+  } else {
+    window.location.href = `/?room=${encodeURIComponent(roomType)}#contact`;
+  }
+};
 
 // ── Set today and tomorrow as default dates ───────────────────────────────────
 function setTodayDates() {
@@ -76,7 +103,7 @@ async function loadFeaturedRooms() {
 function createRoomCard(room) {
   const card = document.createElement('div');
   card.className = 'room-card';
-  card.onclick = () => window.location.href = `/index.html#contact`;
+  card.onclick = () => window.handleBookingRedirect(room.roomType);
 
   const img    = room.images?.[0]?.url || 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600';
   const stars  = '⭐'.repeat(Math.round(room.ratings || 0));
@@ -96,7 +123,7 @@ function createRoomCard(room) {
       <div class="room-card-amenities">${amenTags}</div>
       <div class="room-card-footer">
         <div class="room-price">₹${Number(room.pricePerNight).toLocaleString('en-IN')} <span>/ night</span></div>
-        <button class="btn btn-gold" onclick="event.stopPropagation();window.location.href='/index.html#contact'">Book Now</button>
+        <button class="btn btn-gold" onclick="event.stopPropagation();window.handleBookingRedirect('${room.roomType}')">Book Now</button>
       </div>
     </div>
   `;
