@@ -71,7 +71,7 @@ async function loadFeaturedRooms() {
 function createRoomCard(room) {
   const card = document.createElement('div');
   card.className = 'room-card';
-  card.onclick = () => window.location.href = `/room-detail.html?id=${room._id}`;
+  card.onclick = () => window.location.href = `/index.html#contact`;
 
   const img    = room.images?.[0]?.url || 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600';
   const stars  = '⭐'.repeat(Math.round(room.ratings || 0));
@@ -91,7 +91,7 @@ function createRoomCard(room) {
       <div class="room-card-amenities">${amenTags}</div>
       <div class="room-card-footer">
         <div class="room-price">₹${Number(room.pricePerNight).toLocaleString('en-IN')} <span>/ night</span></div>
-        <button class="btn btn-gold" onclick="event.stopPropagation();window.location.href='/room-detail.html?id=${room._id}'">Book Now</button>
+        <button class="btn btn-gold" onclick="event.stopPropagation();window.location.href='/index.html#contact'">Book Now</button>
       </div>
     </div>
   `;
