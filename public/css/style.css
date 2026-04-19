@@ -2880,3 +2880,83 @@ img {
     flex-direction: column;
   }
 }
+
+/* ── FLOATING WHATSAPP BUTTON ─────────────────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 0.75rem 1rem 0.75rem 0.85rem;
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-width: 52px; /* collapsed: icon only */
+}
+
+.whatsapp-float:hover {
+  max-width: 220px;
+  background: #1ebe5d;
+  box-shadow: 0 8px 36px rgba(37, 211, 102, 0.6);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.whatsapp-label {
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  transition: opacity 0.25s ease 0.05s, max-width 0.35s ease;
+}
+
+.whatsapp-float:hover .whatsapp-label {
+  opacity: 1;
+  max-width: 160px;
+}
+
+/* Pulsing ring */
+.whatsapp-ping {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  animation: waPing 2s ease-in-out infinite;
+}
+
+@keyframes waPing {
+  0%, 100% { transform: scale(1);   opacity: 0.9; }
+  50%       { transform: scale(1.7); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-float {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .whatsapp-icon {
+    width: 24px;
+    height: 24px;
+  }
+}
