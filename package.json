@@ -9,9 +9,17 @@
     "seed": "node seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["hotel", "booking", "nodejs", "express", "mongodb"],
+  "keywords": [
+    "hotel",
+    "booking",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
   "author": "Hotel Vapi",
-  "engines": { "node": "22.x" },
+  "engines": {
+    "node": "22.x"
+  },
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -31,6 +39,7 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.0.2",
+    "sharp": "^0.34.5"
   }
 }
