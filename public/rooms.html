@@ -385,8 +385,8 @@
   <div class="room-filter-bar">
     <button class="filter-tab active" id="filterAll" onclick="filterRooms('all')">All Rooms</button>
     <button class="filter-tab" id="filterDeluxe" onclick="filterRooms('Deluxe')">Deluxe</button>
-    <button class="filter-tab" id="filterSuite" onclick="filterRooms('Suite')">Suites</button>
-    <button class="filter-tab" id="filterExec" onclick="filterRooms('Executive')">Executive Suites</button>
+    <button class="filter-tab" id="filterPremium" onclick="filterRooms('Premium')">Premium</button>
+    <button class="filter-tab" id="filterFamily" onclick="filterRooms('Family')">Family</button>
   </div>
 </div>
 
@@ -405,12 +405,23 @@
         <div class="rsc-image-wrap">
           <img src="Deluxe.webp" alt="Deluxe Room at Vaapi Comfort Inn" loading="lazy" />
           <span class="rsc-badge">Most Popular</span>
-          <span class="rsc-price-pill">From ₹4,500 / night</span>
+          <span class="rsc-price-pill">From ₹4,500 + Taxes / night</span>
         </div>
         <div class="rsc-body">
           <div class="rsc-type">Deluxe</div>
           <h2 class="rsc-title">Deluxe Room</h2>
           <p class="rsc-desc">Spacious and elegantly appointed with natural wood interiors, a plush king-size bed, and a private balcony overlooking lush mountain greenery. Perfect for couples and leisure travellers seeking comfort with style.</p>
+          
+          <div style="background:rgba(201,169,110,0.1); border:1px solid rgba(201,169,110,0.2); padding: 12px; border-radius: 8px; margin-bottom: 1.2rem; font-size: 0.9rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>Room Only:</strong></span> <span style="color:#fff;">₹4,500 + Taxes</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>With Breakfast:</strong></span> <span style="color:#fff;">₹5,000 + Taxes</span>
+            </div>
+            <div style="font-size: 0.75rem; color:var(--gold); text-align:right;">* Per night on double sharing basis</div>
+          </div>
+
           <div class="rsc-tags">
             <span class="rsc-tag">🛏️ King Bed</span>
             <span class="rsc-tag">📺 Smart TV</span>
@@ -423,28 +434,39 @@
             <div class="rsc-rate">
               Starting at
               <strong>₹4,500</strong>
-              <span>per night</span>
+              <span>+ Taxes / night</span>
             </div>
             <a href="/#contact" class="rsc-book-btn">Book Now →</a>
           </div>
         </div>
       </div>
 
-      <!-- ═══ CARD 2 — SUITE ═══ -->
-      <div class="room-showcase-card" data-type="Suite" id="cardSuite">
+      <!-- ═══ CARD 2 — PREMIUM ROOM ═══ -->
+      <div class="room-showcase-card" data-type="Premium" id="cardPremium">
         <div class="rsc-image-wrap">
-          <img src="Suites.webp" alt="Suite Room at Vaapi Comfort Inn" loading="lazy" />
+          <img src="Suites.webp" alt="Premium Room With Balcony at Vaapi Comfort Inn" loading="lazy" />
           <span class="rsc-badge" style="background:#4f46e5;color:#fff;">Premium</span>
-          <span class="rsc-price-pill">From ₹8,500 / night</span>
+          <span class="rsc-price-pill">From ₹5,000 + Taxes / night</span>
         </div>
         <div class="rsc-body">
-          <div class="rsc-type">Suite</div>
-          <h2 class="rsc-title">Suite</h2>
-          <p class="rsc-desc">An expansive suite with a separate living area, premium furnishings, and a panoramic view. Enjoy the ceiling fan, high wooden ceilings, and a cozy seating area that makes you feel right at home in the hills.</p>
+          <div class="rsc-type">Premium Room</div>
+          <h2 class="rsc-title">Premium Room With Balcony</h2>
+          <p class="rsc-desc">An expansive premium room with comfortable furnishings, natural light, and a private balcony. Relax and feel right at home in the beautiful hills of Nainital.</p>
+          
+          <div style="background:rgba(201,169,110,0.1); border:1px solid rgba(201,169,110,0.2); padding: 12px; border-radius: 8px; margin-bottom: 1.2rem; font-size: 0.9rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>Room Only:</strong></span> <span style="color:#fff;">₹5,000 + Taxes</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>With Breakfast:</strong></span> <span style="color:#fff;">₹5,500 + Taxes</span>
+            </div>
+            <div style="font-size: 0.75rem; color:var(--gold); text-align:right;">* Per night on double sharing basis</div>
+          </div>
+
           <div class="rsc-tags">
             <span class="rsc-tag">🛏️ King Bed</span>
-            <span class="rsc-tag">🛋️ Living Area</span>
-            <span class="rsc-tag">🪟 Panoramic View</span>
+            <span class="rsc-tag">🌅 Private Balcony</span>
+            <span class="rsc-tag">🪟 Scenic View</span>
             <span class="rsc-tag">❄️ AC + Fan</span>
             <span class="rsc-tag">📶 Free WiFi</span>
             <span class="rsc-tag">🍳 Breakfast</span>
@@ -453,31 +475,41 @@
           <div class="rsc-footer">
             <div class="rsc-rate">
               Starting at
-              <strong>₹8,500</strong>
-              <span>per night</span>
+              <strong>₹5,000</strong>
+              <span>+ Taxes / night</span>
             </div>
             <a href="/#contact" class="rsc-book-btn">Book Now →</a>
           </div>
         </div>
       </div>
 
-      <!-- ═══ CARD 3 — EXECUTIVE SUITE ═══ -->
-      <div class="room-showcase-card" data-type="Executive" id="cardExecutive">
+      <!-- ═══ CARD 3 — FAMILY ROOM ═══ -->
+      <div class="room-showcase-card" data-type="Family" id="cardFamily">
         <div class="rsc-image-wrap">
-          <img src="Executive%20Suites.webp" alt="Executive Suite at Vaapi Comfort Inn" loading="lazy" />
+          <img src="Executive%20Suites.webp" alt="Family Room at Vaapi Comfort Inn" loading="lazy" />
           <span class="rsc-badge" style="background:linear-gradient(135deg,#c9a96e,#e0ba7a);color:#0d0d1a;">Luxury</span>
-          <span class="rsc-price-pill">From ₹12,000 / night</span>
+          <span class="rsc-price-pill">From ₹8,000 + Taxes / night</span>
         </div>
         <div class="rsc-body">
-          <div class="rsc-type">Executive Suite</div>
-          <h2 class="rsc-title">Executive Suite</h2>
-          <p class="rsc-desc">The pinnacle of comfort at Vaapi Comfort Inn. The Executive Suite features a spacious layout with premium décor, evening balcony views, dedicated work desk, and bespoke hospitality services — ideal for business travellers and special occasions.</p>
+          <div class="rsc-type">Family Room</div>
+          <h2 class="rsc-title">Family Room (4 Bedded)</h2>
+          <p class="rsc-desc">The ultimate family comfort at Vaapi Comfort Inn. Perfect for a group of 4, this spacious suite features four incredibly comfortable beds, a private balcony, and ample room to relax and make memories.</p>
+          
+          <div style="background:rgba(201,169,110,0.1); border:1px solid rgba(201,169,110,0.2); padding: 12px; border-radius: 8px; margin-bottom: 1.2rem; font-size: 0.9rem;">
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>Room Only:</strong></span> <span style="color:#fff;">₹8,000 + Taxes</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom: 6px;">
+              <span style="color:rgba(255,255,255,0.7);"><strong>With Breakfast:</strong></span> <span style="color:#fff;">₹9,000 + Taxes</span>
+            </div>
+            <div style="font-size: 0.75rem; color:var(--gold); text-align:right;">* Per night on double sharing basis</div>
+          </div>
+
           <div class="rsc-tags">
-            <span class="rsc-tag">🛏️ King Bed</span>
-            <span class="rsc-tag">🛋️ Separate Lounge</span>
-            <span class="rsc-tag">🌙 Night Garden View</span>
+            <span class="rsc-tag">🛏️ 4 Beds</span>
+            <span class="rsc-tag">🌅 Private Balcony</span>
+            <span class="rsc-tag">👨‍👩‍👧‍👦 Family Sized</span>
             <span class="rsc-tag">❄️ AC + Fan</span>
-            <span class="rsc-tag">💼 Work Desk</span>
             <span class="rsc-tag">📶 Free WiFi</span>
             <span class="rsc-tag">🍳 Breakfast</span>
             <span class="rsc-tag">📺 Smart TV</span>
@@ -485,8 +517,8 @@
           <div class="rsc-footer">
             <div class="rsc-rate">
               Starting at
-              <strong>₹12,000</strong>
-              <span>per night</span>
+              <strong>₹8,000</strong>
+              <span>+ Taxes / night</span>
             </div>
             <a href="/#contact" class="rsc-book-btn">Book Now →</a>
           </div>
@@ -533,8 +565,8 @@
         <h4>Room Types</h4>
         <ul>
           <li><a href="rooms.html?type=Deluxe">Deluxe Rooms</a></li>
-          <li><a href="rooms.html?type=Suite">Suites</a></li>
-          <li><a href="rooms.html?type=Executive">Executive Suites</a></li>
+          <li><a href="rooms.html?type=Premium">Premium Rooms With Balcony</a></li>
+          <li><a href="rooms.html?type=Family">Family Rooms (4 Bedded)</a></li>
         </ul>
       </div>
 
@@ -563,7 +595,7 @@
   function filterRooms(type) {
     // Update active tab
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-    const tabMap = { all: 'filterAll', Deluxe: 'filterDeluxe', Suite: 'filterSuite', Executive: 'filterExec' };
+    const tabMap = { all: 'filterAll', Deluxe: 'filterDeluxe', Premium: 'filterPremium', Family: 'filterFamily' };
     const activeTab = document.getElementById(tabMap[type]);
     if (activeTab) activeTab.classList.add('active');
 
