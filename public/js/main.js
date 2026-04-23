@@ -362,7 +362,7 @@ window.toggleMobileMenu = function() {
 
 // ── Premium Scroll Reveal Animations ──────────────────────────────────────────
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll('.amenity-card, .room-cat-card, .gallery-item, .testimonial-card, .contact-info, .contact-form-wrap');
+  const revealElements = document.querySelectorAll('.amenity-card, .room-cat-card, .gallery-item, .testimonial-card, .contact-info, .contact-form-wrap, .instagram-item, .section-header.reveal-up');
   revealElements.forEach(el => el.classList.add('reveal-up'));
 
   const observer = new IntersectionObserver((entries, obs) => {
