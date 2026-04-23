@@ -160,7 +160,7 @@ app.post('/api/inquiry', async (req, res) => {
   try {
     const { name, email, phone, subject, message, roomName, checkIn, checkOut, guests } = req.body;
 
-    const W3F_KEY = process.env.WEB3FORMS_KEY || '';
+    const W3F_KEY = process.env.WEB3FORMS_KEY || 'cb1c6629-1929-4b3d-93b2-e187d4556537';
     if (!W3F_KEY) {
       // No key configured — just acknowledge
       return res.json({ success: true, message: 'Inquiry received!' });
