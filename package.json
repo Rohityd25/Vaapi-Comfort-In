@@ -18,7 +18,7 @@
   ],
   "author": "Hotel Vapi",
   "engines": {
-    "node": "22.x"
+    "node": "24.x"
   },
   "license": "MIT",
   "dependencies": {
