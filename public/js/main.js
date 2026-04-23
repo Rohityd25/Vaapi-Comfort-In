@@ -84,13 +84,6 @@ function setTodayDates() {
     if (contactCo) { contactCo.value = fmt(tomorrow); contactCo.min = fmt(tomorrow); }
   }
 }
-  if (co) { co.value = fmt(tomorrow); co.min = fmt(tomorrow); }
-
-  const contactCi = document.getElementById('contactCheckIn');
-  const contactCo = document.getElementById('contactCheckOut');
-  if (contactCi) { contactCi.value = fmt(today);    contactCi.min = fmt(today); }
-  if (contactCo) { contactCo.value = fmt(tomorrow); contactCo.min = fmt(tomorrow); }
-}
 
 // ── Search rooms (redirect to rooms.html with params) ────────────────────────
 function searchRooms() {
