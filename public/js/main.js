@@ -7,6 +7,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initScrollReveal();
   setTodayDates();
   loadFeaturedRooms();
   initStatsCounter();
@@ -65,11 +66,24 @@ function setTodayDates() {
   const tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
 
-  const fmt = (d) => d.toISOString().split('T')[0];
-
-  const ci = document.getElementById('heroCheckIn');
-  const co = document.getElementById('heroCheckOut');
-  if (ci) { ci.value = fmt(today);    ci.min = fmt(today); }
+  if (typeof flatpickr !== 'undefined') {
+    flatpickr("#contactCheckIn", { defaultDate: today, minDate: "today", altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" });
+    flatpickr("#contactCheckOut", { defaultDate: tomorrow, minDate: "today", altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" });
+    // Also upgrade the hero forms if they exist in templates
+    flatpickr("#heroCheckIn", { defaultDate: today, minDate: "today", altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" });
+    flatpickr("#heroCheckOut", { defaultDate: tomorrow, minDate: "today", altInput: true, altFormat: "F j, Y", dateFormat: "Y-m-d" });
+  } else {
+    const fmt = (d) => d.toISOString().split('T')[0];
+    const ci = document.getElementById('heroCheckIn');
+    const co = document.getElementById('heroCheckOut');
+    if (ci) { ci.value = fmt(today);    ci.min = fmt(today); }
+    if (co) { co.value = fmt(tomorrow); co.min = fmt(tomorrow); }
+    const contactCi = document.getElementById('contactCheckIn');
+    const contactCo = document.getElementById('contactCheckOut');
+    if (contactCi) { contactCi.value = fmt(today);    contactCi.min = fmt(today); }
+    if (contactCo) { contactCo.value = fmt(tomorrow); contactCo.min = fmt(tomorrow); }
+  }
+}
   if (co) { co.value = fmt(tomorrow); co.min = fmt(tomorrow); }
 
   const contactCi = document.getElementById('contactCheckIn');
@@ -352,3 +366,20 @@ window.toggleMobileMenu = function() {
   if(links) links.classList.toggle('open');
   if(ham) ham.classList.toggle('open');
 };
+
+// ── Premium Scroll Reveal Animations ──────────────────────────────────────────
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll('.amenity-card, .room-cat-card, .gallery-item, .testimonial-card, .contact-info, .contact-form-wrap');
+  revealElements.forEach(el => el.classList.add('reveal-up'));
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+  revealElements.forEach(el => observer.observe(el));
+}
