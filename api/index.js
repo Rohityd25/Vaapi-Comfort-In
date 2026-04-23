@@ -23,7 +23,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
 // ── Serve Frontend ──────────────────────────────────────────────────────────────
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public'), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    }
+  }
+}));
 
 // ── Static Room Data ────────────────────────────────────────────────────────────
 const rooms = [
@@ -197,6 +203,7 @@ app.get('/api/health', (req, res) => {
 
 // ── SPA Fallback ────────────────────────────────────────────────────────────────
 app.get('*', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
