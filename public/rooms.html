@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="hotel_hero_banner.webp" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Rooms — Vaapi Comfort Inn</title>
@@ -369,7 +371,7 @@
       <div class="hl-item">
         <span class="hl-icon">🕐</span>
         <span class="hl-label">Check-in</span>
-        <span class="hl-value">2:00 PM</span>
+        <span class="hl-value">1:00 PM</span>
       </div>
       <div class="hl-item">
         <span class="hl-icon">🕚</span>
@@ -616,13 +618,8 @@
     if (type) filterRooms(type);
   });
 
-  // ── MOBILE MENU ─────────────────────────────────────────────
-  function toggleMobileMenu() {
-    const links = document.getElementById('navLinks');
-    const ham = document.getElementById('hamburger');
-    links.classList.toggle('open');
-    ham.classList.toggle('open');
-  }
+  // ── MOBILE MENU (Now handled globally in main.js) ───────────
+  // function toggleMobileMenu() removed to avoid duplicate
 </script>
 
 </body>

@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <!-- Preload Critical Images -->
+  <link rel="preload" as="image" href="hotel_hero_banner.webp" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vaapi Comfort Inn — Luxury Stays in Nainital, Uttarakhand</title>
@@ -126,7 +128,11 @@
     <div class="hero-top" style="position:relative;z-index:5;text-align:center;">
       <div class="hero-divider-line"></div>
       <h1 class="hero-title hero-name">Vaapi Comfort Inn</h1>
-      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.4rem);color:var(--gold);letter-spacing:1.5px;margin-top:0.5rem;text-shadow:0 2px 12px rgba(0,0,0,0.5);">(A Unit of SAM Hotels)</p>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2.8vw,1.5rem);color:#e8c98a;letter-spacing:4px;margin-top:1rem;text-shadow:0 4px 15px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.7);font-weight:500;display:flex;align-items:center;justify-content:center;">
+        <span style="display:inline-block; width:45px; height:2px; background:linear-gradient(90deg, transparent, #c9a96e); margin-right:15px; opacity:0.8;"></span>
+        A Unit of SAM Hotels
+        <span style="display:inline-block; width:45px; height:2px; background:linear-gradient(270deg, transparent, #c9a96e); margin-left:15px; opacity:0.8;"></span>
+      </p>
     </div>
 
     <!-- Spacer so scroll indicator sits at bottom -->
@@ -303,61 +309,61 @@
 
       <div class="gallery-grid">
         <div class="gallery-item gallery-item-large" id="gItem1">
-          <img src="Lounge_6.webp" alt="Grand Lobby" />
+          <img src="Lounge_6.webp" alt="Grand Lobby" loading="lazy" />
           <div class="gallery-item-overlay"><span>Grand Lobby</span></div>
         </div>
         <div class="gallery-item" id="gItem2">
-          <img src="Room_4.webp" alt="Luxury Suite" />
+          <img src="Room_4.webp" alt="Luxury Suite" loading="lazy" />
           <div class="gallery-item-overlay"><span>Luxury Suite</span></div>
         </div>
         <div class="gallery-item" id="gItem3">
-          <img src="Room_1.webp" alt="Premium Room" />
+          <img src="Room_1.webp" alt="Premium Room" loading="lazy" />
           <div class="gallery-item-overlay"><span>Premium Room</span></div>
         </div>
         <div class="gallery-item" id="gItem4">
-          <img src="View_1.webp" alt="Stunning Views" />
+          <img src="View_1.webp" alt="Stunning Views" loading="lazy" />
           <div class="gallery-item-overlay"><span>Stunning Views</span></div>
         </div>
         <div class="gallery-item" id="gItem5">
-          <img src="Lounge_1.webp" alt="Lounge Area" />
+          <img src="Lounge_1.webp" alt="Lounge Area" loading="lazy" />
           <div class="gallery-item-overlay"><span>Lounge Area</span></div>
         </div>
         <div class="gallery-item gallery-item-wide" id="gItem6">
-          <img src="Image_1.webp" alt="Hotel Experience" />
+          <img src="Image_1.webp" alt="Hotel Experience" loading="lazy" />
           <div class="gallery-item-overlay"><span>Hotel Experience</span></div>
         </div>
 
         <!-- Additional Images -->
         <div class="gallery-item" id="gItem7">
-          <img src="Room_2.webp" alt="Room View" />
+          <img src="Room_2.webp" alt="Room View" loading="lazy" />
           <div class="gallery-item-overlay"><span>Room View</span></div>
         </div>
         <div class="gallery-item" id="gItem8">
-          <img src="Room_3.webp" alt="Executive Room" />
+          <img src="Room_3.webp" alt="Executive Room" loading="lazy" />
           <div class="gallery-item-overlay"><span>Executive Room</span></div>
         </div>
         <div class="gallery-item" id="gItem9">
-          <img src="Lounge_2.webp" alt="Lounge Setup" />
+          <img src="Lounge_2.webp" alt="Lounge Setup" loading="lazy" />
           <div class="gallery-item-overlay"><span>Lounge Setup</span></div>
         </div>
         <div class="gallery-item" id="gItem10">
-          <img src="Lounge_3.webp" alt="Dining Area" />
+          <img src="Lounge_3.webp" alt="Dining Area" loading="lazy" />
           <div class="gallery-item-overlay"><span>Dining Area</span></div>
         </div>
         <div class="gallery-item" id="gItem11">
-          <img src="Lounge_4.webp" alt="Relaxation Lounge" />
+          <img src="Lounge_4.webp" alt="Relaxation Lounge" loading="lazy" />
           <div class="gallery-item-overlay"><span>Relaxation Lounge</span></div>
         </div>
         <div class="gallery-item" id="gItem12">
-          <img src="Lounge_5.webp" alt="Premium Dining" />
+          <img src="Lounge_5.webp" alt="Premium Dining" loading="lazy" />
           <div class="gallery-item-overlay"><span>Premium Dining</span></div>
         </div>
         <div class="gallery-item" id="gItem13">
-          <img src="View_8.webp" alt="Scenic View" />
+          <img src="View_8.webp" alt="Scenic View" loading="lazy" />
           <div class="gallery-item-overlay"><span>Scenic View</span></div>
         </div>
         <div class="gallery-item" id="gItem14">
-          <img src="View_11.webp" alt="Property Exterior" />
+          <img src="View_11.webp" alt="Property Exterior" loading="lazy" />
           <div class="gallery-item-overlay"><span>Property Exterior</span></div>
         </div>
       </div>
@@ -373,7 +379,7 @@
       <button class="lightbox-close" onclick="closeLightbox()">✕</button>
       <button class="lightbox-prev" onclick="event.stopPropagation(); shiftLightbox(-1)">❮</button>
       <button class="lightbox-next" onclick="event.stopPropagation(); shiftLightbox(1)">❯</button>
-      <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" />
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" onclick="event.stopPropagation()" loading="lazy" />
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
   </section>
@@ -468,7 +474,7 @@
               <span class="contact-icon">🕐</span>
               <div>
                 <strong>Check-in / Check-out</strong>
-                <p>Check-in: 2:00 PM | Check-out: 11:00 AM</p>
+                <p>Check-in: 1:00 PM | Check-out: 11:00 AM</p>
               </div>
             </div>
           </div>

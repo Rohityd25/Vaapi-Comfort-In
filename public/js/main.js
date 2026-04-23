@@ -344,3 +344,11 @@ function initHeroSlideshow() {
 
   startTimer();
 }
+
+// ── Mobile Menu Toggle ────────────────────────────────────────────────────────
+window.toggleMobileMenu = function() {
+  const links = document.getElementById('navLinks');
+  const ham = document.getElementById('hamburger');
+  if(links) links.classList.toggle('open');
+  if(ham) ham.classList.toggle('open');
+};
