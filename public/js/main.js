@@ -264,10 +264,7 @@ async function submitContactForm(e) {
   btn.disabled = true;
   btn.textContent = 'Sending... ⏳';
 
-  // We are communicating directly to Web3Forms to eliminate backend dependencies.
-  // Replace YOUR_WEB3FORMS_KEY with your actual access key from web3forms.com
   const payload = {
-    access_key: "YOUR_WEB3FORMS_KEY", 
     subject: "New Booking Request",
     name:     document.getElementById('contactName')?.value,
     phone:    document.getElementById('contactPhone')?.value,
@@ -275,12 +272,12 @@ async function submitContactForm(e) {
     checkIn:  document.getElementById('contactCheckIn')?.value,
     checkOut: document.getElementById('contactCheckOut')?.value,
     guests:   document.getElementById('contactGuests')?.value,
-    roomType: document.getElementById('contactRoomType')?.value,
+    roomName: document.getElementById('contactRoomType')?.value,
     message:  document.getElementById('contactMessage')?.value,
   };
 
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    const res = await fetch('/api/inquiry', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(payload)
@@ -289,13 +286,9 @@ async function submitContactForm(e) {
     if (data.success) {
       showToast('✅ Booking Request Sent! We will contact you soon.', 'success');
       e.target.reset();
-      
-      // Reset dates back to default
       if (typeof setTodayDates === 'function') setTodayDates();
     } else {
-      // Fallback if access_key is fake and fails
-      console.warn('Web3Forms error:', data.message);
-      showToast('⚠️ Remember to add your Web3Forms Access Key in main.js!', 'warning');
+      showToast('⚠️ Could not send inquiry. Please try again.', 'warning');
     }
   } catch (err) {
     showToast('Network error. Please try again.', 'error');
