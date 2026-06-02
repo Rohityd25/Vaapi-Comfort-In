@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 600);
     setTimeout(() => {
       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+      // Clear hash so refreshing the page starts at the top
+      if (window.location.hash === '#contact') {
+        window.history.replaceState(
+          null,
+          document.title,
+          window.location.pathname + window.location.search
+        );
+      }
     }, 1200);
   }
 });
@@ -44,13 +52,11 @@ window.handleBookingRedirect = function(roomType = '') {
     if (sel) sel.value = roomType;
   }
   
-  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '') {
     const contactSec = document.getElementById('contact');
     if (contactSec) {
       contactSec.scrollIntoView({ behavior: 'smooth' });
-      // Update URL hash
-      window.history.pushState(null, null, '#contact');
-
+      
       // Re-scroll gracefully to outrun lazy-load layout jumps
       setTimeout(() => contactSec.scrollIntoView({ behavior: 'smooth' }), 100);
       setTimeout(() => contactSec.scrollIntoView({ behavior: 'smooth' }), 500);
